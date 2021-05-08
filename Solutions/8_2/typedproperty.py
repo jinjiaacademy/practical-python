@@ -2,6 +2,7 @@
 
 def typedproperty(name, expected_type):
     private_name = '_' + name
+
     @property
     def prop(self):
         return getattr(self, private_name)
@@ -14,9 +15,11 @@ def typedproperty(name, expected_type):
 
     return prop
 
-String = lambda name: typedproperty(name, str)
-Integer = lambda name: typedproperty(name, int)
-Float = lambda name: typedproperty(name, float)
+
+def String(name): return typedproperty(name, str)
+def Integer(name): return typedproperty(name, int)
+def Float(name): return typedproperty(name, float)
+
 
 # Example
 if __name__ == '__main__':
@@ -29,6 +32,3 @@ if __name__ == '__main__':
             self.name = name
             self.shares = shares
             self.price = price
-
-    
-
