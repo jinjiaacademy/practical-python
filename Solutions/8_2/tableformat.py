@@ -13,10 +13,12 @@ class TableFormatter:
         '''
         raise NotImplementedError()
 
+
 class TextTableFormatter(TableFormatter):
     '''
     Output data in plain-text format.
     '''
+
     def headings(self, headers):
         for h in headers:
             print(f'{h:>10s}', end=' ')
@@ -28,20 +30,24 @@ class TextTableFormatter(TableFormatter):
             print(f'{d:>10s}', end=' ')
         print()
 
+
 class CSVTableFormatter(TableFormatter):
     '''
     Output data in CSV format.
     '''
+
     def headings(self, headers):
         print(','.join(headers))
 
     def row(self, rowdata):
         print(','.join(rowdata))
 
+
 class HTMLTableFormatter(TableFormatter):
     '''
     Output data in HTML format.
     '''
+
     def headings(self, headers):
         print('<tr>', end='')
         for h in headers:
@@ -54,8 +60,10 @@ class HTMLTableFormatter(TableFormatter):
             print(f'<td>{d}</td>', end='')
         print('</tr>')
 
+
 class FormatError(Exception):
     pass
+
 
 def create_formatter(name):
     '''
@@ -70,12 +78,12 @@ def create_formatter(name):
     else:
         raise FormatError(f'Unknown table format {name}')
 
+
 def print_table(objects, columns, formatter):
     '''
     Make a nicely formatted table from a list of objects and attribute names.
     '''
     formatter.headings(columns)
     for obj in objects:
-        rowdata = [ str(getattr(obj, name)) for name in columns ]
+        rowdata = [str(getattr(obj, name)) for name in columns]
         formatter.row(rowdata)
-
