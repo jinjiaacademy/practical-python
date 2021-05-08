@@ -1,6 +1,7 @@
 # report.py
 import csv
 
+
 def read_portfolio(filename):
     '''
     Read a stock portfolio file into a list of dictionaries with keys
@@ -13,13 +14,14 @@ def read_portfolio(filename):
 
         for row in rows:
             stock = {
-                 'name'   : row[0],
-                 'shares' : int(row[1]),
-                 'price'   : float(row[2])
+                'name': row[0],
+                'shares': int(row[1]),
+                'price': float(row[2])
             }
             portfolio.append(stock)
 
     return portfolio
+
 
 def read_prices(filename):
     '''
@@ -36,6 +38,7 @@ def read_prices(filename):
 
     return prices
 
+
 def make_report_data(portfolio, prices):
     '''
     Make a list of (name, shares, price, change) tuples given a portfolio list
@@ -48,8 +51,9 @@ def make_report_data(portfolio, prices):
         summary = (stock['name'], stock['shares'], current_price, change)
         rows.append(summary)
     return rows
-        
-# Read data files and create the report data        
+
+# Read data files and create the report data
+
 
 portfolio = read_portfolio('../../Work/Data/portfolio.csv')
 prices = read_prices('../../Work/Data/prices.csv')
