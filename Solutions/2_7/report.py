@@ -1,6 +1,7 @@
 # report.py
 import csv
 
+
 def read_portfolio(filename):
     '''
     Read a stock portfolio file into a list of dictionaries with keys
@@ -13,13 +14,14 @@ def read_portfolio(filename):
 
         for row in rows:
             stock = {
-                 'name'   : row[0],
-                 'shares' : int(row[1]),
-                 'price'   : float(row[2])
+                'name': row[0],
+                'shares': int(row[1]),
+                'price': float(row[2])
             }
             portfolio.append(stock)
 
     return portfolio
+
 
 def read_prices(filename):
     '''
@@ -36,8 +38,9 @@ def read_prices(filename):
 
     return prices
 
+
 portfolio = read_portfolio('../../Work/Data/portfolio.csv')
-prices    = read_prices('../../Work/Data/prices.csv')
+prices = read_prices('../../Work/Data/prices.csv')
 
 # Calculate the total cost of the portfolio
 total_cost = 0.0
