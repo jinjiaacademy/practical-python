@@ -1,6 +1,9 @@
 # pcost.py
 
+import sys
 import csv
+
+
 def portfolio_cost(filename):
     '''
     Computes the total cost (shares*price) of a portfolio file
@@ -21,7 +24,7 @@ def portfolio_cost(filename):
 
     return total_cost
 
-import sys
+
 if len(sys.argv) == 2:
     filename = sys.argv[1]
 else:
