@@ -1,6 +1,7 @@
 # fileparse.py
 import csv
 
+
 def parse_csv(filename, select=None, types=None, has_headers=True, delimiter=',', silence_errors=False):
     '''
     Parse a CSV file into a list of records with type conversion.
@@ -16,7 +17,7 @@ def parse_csv(filename, select=None, types=None, has_headers=True, delimiter=','
 
         # If specific columns have been selected, make indices for filtering and set output columns
         if select:
-            indices = [ headers.index(colname) for colname in select ]
+            indices = [headers.index(colname) for colname in select]
             headers = select
 
         records = []
@@ -26,7 +27,7 @@ def parse_csv(filename, select=None, types=None, has_headers=True, delimiter=','
 
             # If specific column indices are selected, pick them out
             if select:
-                row = [ row[index] for index in indices]
+                row = [row[index] for index in indices]
 
             # Apply type conversion to the row
             if types:
